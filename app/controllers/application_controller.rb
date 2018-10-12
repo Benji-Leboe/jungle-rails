@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
   def authorize
-    redirect_to [:login] unless current_user
+    redirect_to [:new, :session] unless current_user
   end
 
   private

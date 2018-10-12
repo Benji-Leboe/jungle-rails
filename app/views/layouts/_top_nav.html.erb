@@ -30,8 +30,8 @@
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <span class="text-danger">
-              <% if @current_user %>
-                <%= current_user.name %>
+              <% if current_user %>
+                <%= current_user.first_name %>
               <% else %>
                 <%= fa_icon 'lock', text: 'Admin' %>
               <% end %>
