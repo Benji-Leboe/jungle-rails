@@ -1,0 +1,16 @@
+<tr>
+  <td colspan="2">
+    <%= image_tag product.image.tiny %>
+    <h4><%= product.name %></h4>
+    <br>
+  </td>
+  <td>
+    <%= product.price %>
+  </td>
+  <td>
+    <%= product.quantity %>
+  </td>
+  <td>
+    <%= product.price * product.quantity %>
+  </td>
+</tr>
