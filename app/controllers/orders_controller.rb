@@ -53,6 +53,14 @@ class OrdersController < ApplicationController
       )
     end
     order.save!
+    
+    respond_to do |format|
+      if order.save!
+        format.html do
+          OrderMailer.order_confirmation(order, order.id).deliver
+        end
+      end
+    end
     order
   end
 
