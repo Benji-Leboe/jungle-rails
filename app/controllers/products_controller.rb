@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def show_reviews
-    @reviews = Review.where(product_id: @product.id)
+    @reviews = Review.where(product_id: @product.id).order(created_at: :desc)
   end
   helper_method :show_reviews
 
