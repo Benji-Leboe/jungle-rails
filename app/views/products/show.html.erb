@@ -43,12 +43,12 @@
               <% end %>
             </div>
             <% if show_reviews.size < 1 %>
-              <h4>There are no reviews for this product</h4>
+              <h4 class="no-reviews">There are no reviews for this product.</h4>
             <% else %>
               <% show_reviews.each do |review| %>
                 <div class="review-entry">
                   <div class="container-row">
-                    <h5 class="review-author"><%= show_author(review) %></h5>
+                    <h5 class="review-author"><%= @user = show_author(review); "#{@user.first_name} #{@user.last_name}" %></h5>
                     <div class="rating">
                       <% 5.times do |i| %>
                         <% if i < review.rating %>
@@ -63,6 +63,9 @@
                   <div class="review-content">     
                     <p class="review-description"><%= review.description %></p>
                   </div>
+                  <% if review.user_id == current_user.id %>
+                    <%= link_to "Delete Review", product_review_path(review.product_id, review.id), :method => "delete" %>
+                  <% end %>
                 </div>
               <% end %>
             <% end %>

@@ -92,6 +92,11 @@ main section.products-show {
     .review-container {
       display: flex;
       flex-direction: column;
+
+      .no-reviews {
+        padding: 1rem;
+        margin: 5rem 0rem;
+      }
       
       .review-list {
         min-width: 60%;
