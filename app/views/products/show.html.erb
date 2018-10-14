@@ -23,20 +23,39 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <div class="review-container">
+          <div class="review-list">
+            <h3>Product Reviews</h3>
+            <% if show_reviews.size < 1 %>
+              <h4>There are no reviews for this product</h4>
+            <% else %>
+              <% show_reviews.each do |review| %>
+                <div class="review-entry">
+                  <h5 class="review-author"><%= show_author(review) %></h5>
+                  <hr/>
+                  <div class="review-content">
+                    <div class="rating">
+                      <% 5.times do |i| %>
+                        <% if i < review.rating %>
+                          <span class="star">★</span>
+                        <% else %>
+                          <span class="star">☆</span>
+                        <% end %>
+                      <% end %>
+                    </div>      
+                    <p class="review-description"><%= review.description %></p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-
+    
   </article>
-  <h3>Product Reviews</h3>
-  <% if show_reviews.size < 1 %>
-    <h4>There are no reviews for this product</h4>
-  <% else %>
-    <% show_reviews.each do |review| %>
-      <p><%= p show_author(review) %></p>
-      <p><%= review.description %></p>
-      <p>Rating: <%= review.rating %>/5</p>
-    <% end %>
-  <% end %>
+  
+  
   
 
 </section>
