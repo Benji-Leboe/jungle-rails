@@ -27,5 +27,16 @@
     </div>
 
   </article>
+  <h3>Product Reviews</h3>
+  <% if show_reviews.size < 1 %>
+    <h4>There are no reviews for this product</h4>
+  <% else %>
+    <% show_reviews.each do |review| %>
+      <p><%= p show_author(review) %></p>
+      <p><%= review.description %></p>
+      <p>Rating: <%= review.rating %>/5</p>
+    <% end %>
+  <% end %>
+  
 
 </section>

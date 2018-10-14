@@ -132,5 +132,25 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+Review.create!({
+  user_id: 1,
+  product_id: 1,
+  description: 'Your mom in a jar',
+  rating: 5
+})
+
+Review.create!({
+  user_id: 2,
+  product_id: 2,
+  description: 'Your mom in a can',
+  rating: 3
+})
+
+Review.create!({
+  user_id: 1,
+  product_id: 3,
+  description: 'Your mom in a tureen',
+  rating: 4
+})
 
 puts "DONE!"

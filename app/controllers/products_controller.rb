@@ -8,4 +8,15 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
   end
 
+  def show_reviews
+    @reviews = Review.where(product_id: @product.id)
+  end
+  helper_method :show_reviews
+
+  def show_author(review)
+    @user = User.find(review.user_id)
+    "#{@user.first_name} #{@user.last_name}"
+  end
+  helper_method :show_author
+
 end
