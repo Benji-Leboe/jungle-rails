@@ -87,12 +87,20 @@ main section.products-show {
     .review-container {
       display: flex;
       flex-direction: column;
+      
       .review-list {
         min-width: 60%;
         margin: auto;
         hr {
           border-color: rgba(0,0,0,0.4);
           margin: 0rem 0.2rem 0.5rem 0.2rem;
+        }
+        div.review-form-container {
+          display: flex;
+          form {
+            display: flex;
+            flex-direction: column;
+          }
         }
         .review-entry {
           background-color: rgba(216, 216, 216, 0.651);

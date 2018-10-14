@@ -26,6 +26,14 @@
         <div class="review-container">
           <div class="review-list">
             <h3>Product Reviews</h3>
+            <div class="review-form-container">
+              <%= form_for @product, :method => "post", :url => product_reviews_path(@product), 
+                :html => { :id => "review-form", :class => "review-form" } do |f| %>
+                <%= f.label "Add a Review", :class => 'review-form-title' %>
+                <%= f.text_field :reviews %>
+                <%= f.submit "Add Review" %>
+              <% end %>
+            </div>
             <% if show_reviews.size < 1 %>
               <h4>There are no reviews for this product</h4>
             <% else %>
