@@ -13,6 +13,17 @@ class ProductsController < ApplicationController
   end
   helper_method :show_reviews
 
+  def self.average_rating(product_id)
+    reviews = Review.where(product_id: product_id)
+    count = 0
+    total_rating = 0
+    reviews.each do |review|
+      count += 1
+      total_rating += review.rating 
+    end
+    total_rating.round
+  end
+
   def show_author(review)
     @user = User.find(review.user_id)
   end

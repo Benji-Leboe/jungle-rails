@@ -63,7 +63,7 @@
                   <div class="review-content">     
                     <p class="review-description"><%= review.description %></p>
                   </div>
-                  <% if review.user_id == current_user.id %>
+                  <% if current_user != nil && review.user_id == current_user.id %>
                     <%= link_to "Delete Review", product_review_path(review.product_id, review.id), :method => "delete" %>
                   <% end %>
                 </div>
@@ -76,7 +76,4 @@
     
   </article>
   
-  
-  
-
 </section>
