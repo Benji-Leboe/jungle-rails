@@ -9,6 +9,25 @@
 // Global
 body {
   padding-top: 70px;
+  hr {
+    border-color: rgba(0,0,0,0.4);
+    margin: 0rem 0.2rem 0.5rem 0.2rem;
+  }
+  .container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  }
+  .categories-table {
+    justify-content: space-between;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    .category-delete {
+      margin-left: auto;
+      padding: 1rem;
+    }
+  }
 }
 
 // Bootstrap adjustments

@@ -78,12 +78,6 @@ main section.categories-show {
 }
 
 main section.products-show {
-  .container-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-  }
   .product-detail {
     display: flex;
     img.main-img {
@@ -101,10 +95,7 @@ main section.products-show {
       .review-list {
         min-width: 60%;
         margin: auto;
-        hr {
-          border-color: rgba(0,0,0,0.4);
-          margin: 0rem 0.2rem 0.5rem 0.2rem;
-        }
+        
         .review-form-container {
           display: flex;
           background-color: rgba(230,230,230,0.6);

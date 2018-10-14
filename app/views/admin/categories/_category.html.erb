@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <div class="categories-table container-row">
+      <h4><%= category.name %></h4>
+      <%= link_to fa_icon('trash'), admin_category_path(category.id), class: 'category-delete btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      <br>
+      <hr/>
+    </div>
+  </td>
+</tr>

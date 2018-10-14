@@ -18,10 +18,16 @@ class Admin::CategoriesController < Admin::AdminsController
     end
   end
 
+  def destroy
+    @category = Category.find params[:id]
+    @category.destroy
+    redirect_to [:admin, :categories], notice: 'Category deleted!'
+  end
+
   private
 
   def category_params
-    
+    params.require(:category).permit(:name, :id)
   end
   
 end
