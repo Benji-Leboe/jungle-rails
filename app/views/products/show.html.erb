@@ -27,11 +27,19 @@
           <div class="review-list">
             <h3>Product Reviews</h3>
             <div class="review-form-container">
-              <%= form_for @product, :method => "post", :url => product_reviews_path(@product), 
+              <%= form_for :review, :method => "post", :url => product_reviews_path(@product), 
                 :html => { :id => "review-form", :class => "review-form" } do |f| %>
                 <%= f.label "Add a Review", :class => 'review-form-title' %>
-                <%= f.text_field :reviews %>
-                <%= f.submit "Add Review" %>
+                <%= f.text_field :description, :placeholder => "Add your review...", :class => "review-description" %>
+                <div class="rating-container container-row">
+                  <%= f.label "Rate this product:", :class => "rating-label" %>
+                  <%= f.select :rating, :html => { :class => "rating-dropdown" } do %>
+                    <% [['1 ★', 1], ['2 ★', 2], ['3 ★', 3], ['4 ★', 4], ['5 ★', 5]].each do |n|-%>
+                      <%= content_tag(:option, n.first, value: n.last) %>
+                    <% end %>
+                  <% end %>
+                  <%= f.submit "Submit Review", :class => "review-submit-btn" %>
+                </div>   
               <% end %>
             </div>
             <% if show_reviews.size < 1 %>
@@ -39,9 +47,8 @@
             <% else %>
               <% show_reviews.each do |review| %>
                 <div class="review-entry">
-                  <h5 class="review-author"><%= show_author(review) %></h5>
-                  <hr/>
-                  <div class="review-content">
+                  <div class="container-row">
+                    <h5 class="review-author"><%= show_author(review) %></h5>
                     <div class="rating">
                       <% 5.times do |i| %>
                         <% if i < review.rating %>
@@ -50,7 +57,10 @@
                           <span class="star">☆</span>
                         <% end %>
                       <% end %>
-                    </div>      
+                    </div>
+                  </div> 
+                  <hr/>
+                  <div class="review-content">     
                     <p class="review-description"><%= review.description %></p>
                   </div>
                 </div>
