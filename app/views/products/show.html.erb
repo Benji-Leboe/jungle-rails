@@ -27,19 +27,23 @@
           <div class="review-list">
             <h3>Product Reviews</h3>
             <div class="review-form-container">
-              <%= form_for :review, :method => "post", :url => product_reviews_path(@product), 
-                :html => { :id => "review-form", :class => "review-form" } do |f| %>
-                <%= f.label "Add a Review", :class => 'review-form-title' %>
-                <%= f.text_field :description, :placeholder => "Add your review...", :class => "review-description" %>
-                <div class="rating-container container-row">
-                  <%= f.label "Rate this product:", :class => "rating-label" %>
-                  <%= f.select :rating, :html => { :class => "rating-dropdown" } do %>
-                    <% [['1 ★', 1], ['2 ★', 2], ['3 ★', 3], ['4 ★', 4], ['5 ★', 5]].each do |n|-%>
-                      <%= content_tag(:option, n.first, value: n.last) %>
+              <% if current_user != nil %>
+                <%= form_for :review, :method => "post", :url => product_reviews_path(@product), 
+                  :html => { :id => "review-form", :class => "review-form" } do |f| %>
+                  <%= f.label "Add a Review", :class => 'review-form-title' %>
+                  <%= f.text_field :description, :placeholder => "Add your review...", :class => "review-description" %>
+                  <div class="rating-container container-row">
+                    <%= f.label "Rate this product:", :class => "rating-label" %>
+                    <%= f.select :rating, :html => { :class => "rating-dropdown" } do %>
+                      <% [['1 ★', 1], ['2 ★', 2], ['3 ★', 3], ['4 ★', 4], ['5 ★', 5]].each do |n|-%>
+                        <%= content_tag(:option, n.first, value: n.last) %>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                  <%= f.submit "Submit Review", :class => "review-submit-btn" %>
-                </div>   
+                    <%= f.submit "Submit Review", :class => "review-submit-btn" %>
+                  </div>   
+                <% end %>
+              <% else %>
+                <h4>Sign in to leave a review!</h4>
               <% end %>
             </div>
             <% if show_reviews.size < 1 %>
