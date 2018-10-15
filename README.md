@@ -26,13 +26,12 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * PostgreSQL 9.x
 * Stripe
 
-##Overview
+## Overview
 
 ![img](./app/assets/images/ScreenShot2018-10-14at10.49.37PM.png)
 ![img](./app/assets/images/ScreenShot2018-10-14at10.49.47PM.png)
 ![img](./app/assets/images/ScreenShot2018-10-14at10.50.33PM.png)
 ![img](./app/assets/images/ScreenShot2018-10-14at10.52.36PM.png)
-![img](./app/assets/images/ScreenShot2018-10-14at11.16.09AM.png)
 ![img](./app/assets/images/ScreenShot2018-10-14at10.47.35PM.png)
 ![img](./app/assets/images/ScreenShot2018-10-14at10.47.50PM.png)
 ![img](./app/assets/images/ScreenShot2018-10-14at10.48.37PM.png)
