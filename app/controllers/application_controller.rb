@@ -3,6 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def authorize_admin
+    session[:authorized] = true
+  end
+  
+  def http_basic_authenticated?
+    session[:authorized] ? true : false
+  end
+  helper_method :http_basic_authenticated?
+
+  def end_admin_session
+    session[:authorized] = nil
+  end
+  helper_method :end_admin_session
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

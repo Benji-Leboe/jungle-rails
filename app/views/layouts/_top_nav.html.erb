@@ -32,16 +32,19 @@
             <span class="text-danger">
               <% if current_user %>
                 <%= current_user.first_name %>
-              <% else %>
+              <% elsif http_basic_authenticated? %>
                 <%= fa_icon 'lock', text: 'Admin' %>
+              <% else %>
+                Login
               <% end %>
             </span>
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Dashboard', [:admin, :root] %></li>
-            <li><%= link_to 'Products',  [:admin, :products] %></li>
-            <% if current_user %>
+            <% if http_basic_authenticated? %>
+              <li><%= link_to 'Dashboard', [:admin, :root] %></li>
+              <li><%= link_to 'Products',  [:admin, :products] %></li>
+            <% elsif current_user %>
               <li><%= link_to "Logout", session_path(:id), :method => "delete" %></li>  
             <% else %>
               <li><%= link_to 'Login', [:new, :session] %></li>
