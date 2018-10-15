@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
       count += 1
       total_rating += review.rating 
     end
-    total_rating.round
+    total_rating > 0 ? (total_rating/count).round : 0
   end
 
   def show_author(review)
