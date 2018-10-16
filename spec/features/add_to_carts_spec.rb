@@ -17,12 +17,12 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     end
   end
 
-  scenario "They can view product details" do
+  scenario "They can add product to cart" do
     # ACT
     visit root_path
-    first('article.product').click_link 'Details'
+    first('article button').click
     # DEBUG / VERIFY
-    expect(page).to have_selector(:css, "article.product-detail", wait: 3)
+    
     save_screenshot
     puts page.html
   end
